@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 14:17:21 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/23 16:33:43 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/09/23 16:48:20 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int	draw_map(t_game *game)
 	int		j;
 
 	i = 0;
-	printf("Valeur de game->count : %d\n", game->count);
 	while (i < game->y)
 	{
 		j = 0;

@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:38:05 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/23 15:51:12 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/09/29 13:06:53 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,20 @@
  * game->texts_img[1] = floor
  * Rajouter la suite ici
  **/
+
+int	load_textures_enemy(t_game *game)
+{
+	game->enemy.text_img_enemy = mlx_xpm_file_to_image(game->mlx, PATH_ENEMY,
+				&game->enemy.txt_enemy_x, &game->enemy.txt_enemy_y);
+	if (!game->enemy.text_img_enemy)
+	{
+		free_tab2d(game->map);
+		printf("Error\nUnable to load textures for the enemy\n");
+		return (0);
+	}
+	place_enemy_on_map(game);
+	return (1);
+}
 
 int	load_textures(t_game *game)
 {
@@ -33,7 +47,7 @@ int	load_textures(t_game *game)
 		{
 			free_tab2d(path);
 			free_tab2d(game->map);
-			printf("Error\nImpossible de charger les textures\n");
+			printf("Error\nUnable to load textures\n");
 			return (0);
 		}
 	}

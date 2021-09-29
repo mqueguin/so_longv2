@@ -31,7 +31,7 @@ LFLAGS       =       -framework OpenGL -framework AppKit
 FLAGS       =       -Wall -Wextra -Werror
 
 .c.o:
-					@${CC} ${FLAGS} -I${INCLUDES_DIR} -c $< -o ${<:.c=.o}
+					@${CC} ${FLAGS} -I${INCLUDES_DIR} -c $< -o $@
 					@echo "\x1b[32m[ OK ]\033[0m ${<:.s=.o}"
 
 all:			${NAME}

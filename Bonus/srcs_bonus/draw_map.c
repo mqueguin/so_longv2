@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 14:17:21 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/23 16:48:20 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/09/29 15:51:20 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,13 @@ static	void	draw_count(t_game *game)
 	}
 }
 
+void	draw_enemy(t_game *game)
+{
+	mlx_put_image_to_window(game->mlx, game->mlx_win, game->enemy.text_img_enemy, game->enemy.enemy_pos[0] * 32,
+				game->enemy.enemy_pos[1] * 32);
+	
+}
+
 int	draw_map(t_game *game)
 {
 	int		i;
@@ -54,6 +61,7 @@ int	draw_map(t_game *game)
 		j = 0;
 		while (j < game->x)
 		{
+			draw_enemy(game);
 			if (game->map[i][j] == '1')
 				mlx_put_image_to_window(game->mlx, game->mlx_win, game->texts_img[0], j * 32, i * 32);
 			else if (game->map[i][j] == 'C')

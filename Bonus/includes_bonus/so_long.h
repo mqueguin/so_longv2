@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 13:13:43 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/23 16:07:33 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/09/29 13:09:30 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@
 # include <mlx.h>
 
 # define PATH "txt/wall.xpm txt/floor.xpm txt/character.xpm txt/diamond.xpm txt/diamond2.xpm txt/exit.xpm txt/exit2.xpm txt/0.xpm txt/1.xpm txt/2.xpm txt/3.xpm txt/4.xpm txt/5.xpm txt/6.xpm txt/7.xpm txt/8.xpm txt/9.xpm"
+#define PATH_ENEMY "txt/creeper.xpm"
+
+typedef struct	s_enemy
+{
+	int		enemy_pos[2];
+	void	*text_img_enemy;
+	int		txt_enemy_x;
+	int		txt_enemy_y;
+}				t_enemy;
 
 typedef struct s_game
 {
@@ -44,7 +53,7 @@ typedef struct s_game
 	int		count;
 	int		nb_collectible;
 	int		count_collectible;
-
+	t_enemy	enemy;
 }				t_game;
 
 int			check_extension(char *file);
@@ -65,4 +74,6 @@ int			exit_victory(t_game *game);
 void		animation_c(t_game *game, int i, int j);
 void		animation_e(t_game *game, int i, int j);
 
+int			load_textures_enemy(t_game *game);
+int			place_enemy_on_map(t_game *game);
 #endif

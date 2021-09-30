@@ -89,16 +89,10 @@ int	ft_verif_map_is_close(t_game *game)
 		if (game->map[y - 1][x] != '1')
 			return (ft_putendl_fd("Error\nLe mur du bas n'est pas ferme", 2));
 	y = -1;
-	while (game->map[++y])
-	{
-		x = 0;
-		if (game->map[y][0] != '1')
-			return (ft_putendl_fd("Error\nLe mur de gauche n'est pas ferme", 2));
-		if (game->map[y][x_max - 1] != '1' || game->map[y][x_max])
-			return (ft_putendl_fd("Error\nLe mur de droite n'est pas ferme", 2));
-	}
+	game->res[1] = check_right_left_wall(game, x_max);
+	if (!game->res[1])
+		return (0);
 	game->res[0] = x_max;
-	game->res[1] = y;
 	return (1);
 }
 

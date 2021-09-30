@@ -12,6 +12,23 @@
 
 #include "../includes/so_long.h"
 
+int	check_right_left_wall(t_game *game, int x_max)
+{
+	int	x;
+	int	y;
+
+	y = -1;
+	while (game->map[++y])
+	{
+		x = 0;
+		if (game->map[y][0] != '1')
+			return (ft_putendl_fd("Error\nLe mur de gauche n'est pas ferme", 2));
+		if (game->map[y][x_max - 1] != '1' || game->map[y][x_max])
+			return (ft_putendl_fd("Error\nLe mur de droite n'est pas ferme", 2));
+	}
+	return (y);
+}
+
 int	check_top_wall(t_game *game)
 {
 	int	x;

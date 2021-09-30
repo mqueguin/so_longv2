@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 13:13:43 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/15 15:58:39 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/09/30 17:43:39 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include "../libft/libft.h"
 # include <mlx.h>
 
-# define PATH "txt/wall.xpm txt/floor.xpm txt/character.xpm txt/diamond.xpm txt/exit.xpm"
+# define PATH "txt/wall.xpm txt/floor.xpm txt/steve.xpm txt/diamond.xpm txt/exit.xpm"
 
 typedef struct s_game
 {

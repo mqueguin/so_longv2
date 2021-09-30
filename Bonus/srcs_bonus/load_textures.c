@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:38:05 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/29 13:06:53 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/09/30 15:26:41 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,14 @@
 
 int	load_textures_enemy(t_game *game)
 {
-	game->enemy.text_img_enemy = mlx_xpm_file_to_image(game->mlx, PATH_ENEMY,
-				&game->enemy.txt_enemy_x, &game->enemy.txt_enemy_y);
-	if (!game->enemy.text_img_enemy)
+	char **path;
+
+	path = ft_split(PATH_ENEMY, ' ');
+	game->enemy.text_img_enemy[0] = mlx_xpm_file_to_image(game->mlx, path[0],
+				&game->enemy.txt_enemy_x[0], &game->enemy.txt_enemy_y[0]);
+	game->enemy.text_img_enemy[1] = mlx_xpm_file_to_image(game->mlx, path[1],
+				&game->enemy.txt_enemy_x[1], &game->enemy.txt_enemy_y[1]);
+	if (!game->enemy.text_img_enemy[0] || !game->enemy.text_img_enemy[1])
 	{
 		free_tab2d(game->map);
 		printf("Error\nUnable to load textures for the enemy\n");

@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 15:05:17 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/29 12:29:08 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/09/30 14:38:05 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static	void	initialize_struct(t_game *game)
 {
-	printf("Je rentre bien ici\n");
 	game->count = 0;
 	game->count_collectible = 0;
+	game->enemy.b_move = 1;
 }
 
 int	start_game(t_game *game)

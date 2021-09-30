@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 19:12:31 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/23 16:32:59 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/09/30 12:56:41 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_up(t_game *game)
 {
 	if (game->map[game->player_pos[1] - 1][game->player_pos[0]] == '1')
 		return ; //On est sur un mur donc on ne peut pas bouger
+	enemy_moves(game);
 	if (game->map[game->player_pos[1] - 1][game->player_pos[0]] == 'E')
 	{
 		game->player_pos[1]--;
@@ -36,6 +37,7 @@ void	ft_down(t_game *game)
 {
 	if (game->map[game->player_pos[1] + 1][game->player_pos[0]] == '1')
 		return ;
+	enemy_moves(game);
 	if (game->map[game->player_pos[1] + 1][game->player_pos[0]] == 'E')
 	{
 		game->player_pos[1]++;
@@ -56,6 +58,7 @@ void	ft_left(t_game *game)
 {
 	if (game->map[game->player_pos[1]][game->player_pos[0] - 1] == '1')
 		return ;
+	enemy_moves(game);
 	if (game->map[game->player_pos[1]][game->player_pos[0] - 1] == 'E')
 	{
 		game->player_pos[0]--;
@@ -76,6 +79,7 @@ void	ft_right(t_game *game)
 {
 	if (game->map[game->player_pos[1]][game->player_pos[0] + 1] == '1')
 		return ;
+	enemy_moves(game);
 	if (game->map[game->player_pos[1]][game->player_pos[0] + 1] == 'E')
 	{
 		game->player_pos[0]++;

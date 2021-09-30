@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 18:54:23 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/15 17:02:36 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/09/30 18:47:30 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	events_key_manager(int keycode, t_game *game)
 {
-	//printf("Valeur de keycode : %d\n", keycode);
 	if (keycode == 53)
 		echap_game_mouse(game);
 	if (keycode == 13)
@@ -33,5 +32,5 @@ int	echap_game_mouse(t_game *game)
 	mlx_destroy_image(game->mlx, game->img);
 	mlx_destroy_window(game->mlx, game->mlx_win);
 	free_tab2d(game->map);
-	exit (0);
+	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 15:05:17 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/15 17:06:42 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/09/30 18:49:25 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ static	void	initialize_struct(t_game *game)
 {
 	game->count = 0;
 	game->count_collectible = 0;
+	game->nb_collectible = 0;
 }
 
 int	start_game(t_game *game)
 {
-	initialize_struct(game);
 	initialize_mlx_and_window(game);
 	if (!load_textures(game))
 		return (-1);
@@ -40,10 +40,11 @@ int	main(int ac, char **av)
 	{
 		printf("Error\nThe arguments are wrong!\n");
 		return (-1);
-	} 
+	}
 	if (!check_extension(av[1]) || !check_open_file(av[1]))
 		return (-1);
 	game.fd = open(av[1], O_RDONLY);
+	initialize_struct(&game);
 	if (!ft_parse_map(&game))
 		return (-1);
 	if ((start_game(&game)) == -1)

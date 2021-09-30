@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 15:10:48 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/22 13:54:25 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/09/30 18:31:48 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	check_open_file(char *file)
 {
 	int	fd;
 
-	//printf("Valeur de file : %s\n", file);
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 	{

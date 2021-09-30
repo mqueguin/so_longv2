@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 13:13:43 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/30 17:43:39 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/09/30 19:20:41 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ typedef struct s_game
 int			check_extension(char *file);
 int			check_open_file(char *file);
 int			ft_parse_map(t_game *game);
+void		check_elements_in_map(t_game *game, int b_exit, int b_player);
+int			check_top_wall(t_game *game);
 void		initialize_mlx_and_window(t_game *game);
 int			draw_map(t_game *game);
 //int			recover_player_collect_and_exit_pos(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:38:05 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/15 17:06:58 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/09/30 18:35:53 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@
 
 int	load_textures(t_game *game)
 {
-	int	i;
+	int		i;
 	char	**path;
 
 	i = -1;
 	path = ft_split(PATH, ' ');
 	while (++i < 5)
 	{
-		game->texts_img[i] = mlx_xpm_file_to_image(game->mlx, path[i], &game->text_x[i],
-					&game->text_y[i]);
+		game->texts_img[i] = mlx_xpm_file_to_image(game->mlx, path[i],
+				&game->text_x[i], &game->text_y[i]);
 		if (!game->texts_img[i])
 		{
 			free_tab2d(path);

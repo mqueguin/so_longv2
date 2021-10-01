@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 13:13:43 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/30 17:43:51 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/01 12:16:25 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
 # include "../libft/libft.h"
 # include <mlx.h>
 
-# define PATH "txt/wall.xpm txt/floor.xpm txt/steve.xpm txt/diamond.xpm txt/diamond2.xpm txt/exit.xpm txt/exit2.xpm txt/0.xpm txt/1.xpm txt/2.xpm txt/3.xpm txt/4.xpm txt/5.xpm txt/6.xpm txt/7.xpm txt/8.xpm txt/9.xpm"
+# define PATH "txt/w.xpm txt/f.xpm txt/steve.xpm txt/diamond.xpm txt/diamond2.xpm txt/exit.xpm txt/exit2.xpm"
+# define PATH_NUMBERS "txt/0.xpm txt/1.xpm txt/2.xpm txt/3.xpm txt/4.xpm txt/5.xpm txt/6.xpm txt/7.xpm txt/8.xpm txt/9.xpm"
 # define PATH_ENEMY "txt/creeper.xpm txt/creeper2.xpm"
 
 typedef struct	s_enemy
@@ -32,6 +33,14 @@ typedef struct	s_enemy
 	int		txt_enemy_y[2];
 	int		b_move;
 }				t_enemy;
+
+typedef struct	s_numbers
+{
+	void	*text_number[10];
+	int		text_numbers_x[10];
+	int		text_numbers_y[10];
+}				t_numbers;
+
 
 typedef struct s_game
 {
@@ -48,13 +57,14 @@ typedef struct s_game
 	int		res[2];
 	char	**map;
 	int		player_pos[2]; //x: 0, y: 1
-	void	*texts_img[17];
-	int		text_x[17];
-	int		text_y[17];
+	void	*texts_img[7];
+	int		text_x[7];
+	int		text_y[7];
 	int		count;
 	int		nb_collectible;
 	int		count_collectible;
 	t_enemy	enemy;
+	t_numbers	numbers;
 }				t_game;
 
 int			check_extension(char *file);
@@ -76,6 +86,7 @@ void		animation_c(t_game *game, int i, int j);
 void		animation_e(t_game *game, int i, int j);
 
 int			load_textures_enemy(t_game *game);
+int 		load_textures_numbers(t_game *game);
 int			place_enemy_on_map(t_game *game);
 void		enemy_moves(t_game *game);
 void		draw_enemy_with_animation(t_game *game);

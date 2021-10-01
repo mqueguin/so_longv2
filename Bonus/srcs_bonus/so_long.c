@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 15:05:17 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/30 14:38:05 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/01 12:14:58 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	start_game(t_game *game)
 {
 	initialize_struct(game);
 	initialize_mlx_and_window(game);
-	if (!load_textures(game) || !load_textures_enemy(game))
+	if (!load_textures(game) || !load_textures_enemy(game) || !load_textures_numbers(game))
 		return (-1);
 	game->img = mlx_new_image(game->mlx, game->res[0] * 32, game->res[1] * 32);
 	mlx_hook(game->mlx_win, 2, 1L << 0, events_key_manager, game);

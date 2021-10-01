@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 13:13:43 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/30 19:20:41 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/01 11:45:28 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include "../libft/libft.h"
 # include <mlx.h>
 
-# define PATH "txt/wall.xpm txt/floor.xpm txt/steve.xpm txt/diamond.xpm txt/exit.xpm"
+# define PATH "txt/w.xpm txt/f.xpm txt/steve.xpm txt/diamond.xpm txt/exit.xpm"
 
 typedef struct s_game
 {
@@ -37,7 +37,7 @@ typedef struct s_game
 	int		fd;
 	int		res[2];
 	char	**map;
-	int		player_pos[2]; //x: 0, y: 1
+	int		player_pos[2];
 	void	*texts_img[5];
 	int		text_x[5];
 	int		text_y[5];

@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 15:10:48 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/30 18:31:48 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/04 15:37:24 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	check_open_file(char *file)
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 	{
-		printf("Error\nThe file doesn't exist\n");
+		ft_putendl_fd("Error\nThe file doesn't exist", 2);
 		return (0);
 	}
 	return (1);
@@ -42,7 +42,7 @@ int	check_extension(char *file)
 			file++;
 		if (ft_strncmp(file, ".ber", 4))
 		{
-			printf("Error\nThe extension must be '.ber'\n");
+			ft_putendl_fd("Error\nThe extension must be '.ber'", 2);
 			return (0);
 		}
 	}

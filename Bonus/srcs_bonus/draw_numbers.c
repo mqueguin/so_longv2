@@ -1,21 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_drawing.c                                      :+:      :+:    :+:   */
+/*   draw_numbers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/19 12:17:07 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/16 17:41:53 by mqueguin         ###   ########.fr       */
+/*   Created: 2021/10/04 15:05:18 by mqueguin          #+#    #+#             */
+/*   Updated: 2021/10/04 15:06:28 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes_bonus/so_long.h"
 
-void	my_mlx_pixel_put(t_game *game, int x, int y, int color)
+int	get_size(int count)
 {
-	char	*dst;
+	int	size;
 
-	dst = game->addr + (y * game->line_length + x * (game->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	if (count == 0)
+		return (1);
+	size = 0;
+	while (count > 0)
+	{
+		count /= 10;
+		size++;
+	}
+	return (size);
+}
+
+void	draw_count(t_game *game)
+{
+	int	size;
+	int	count;
+	int	tmp;
+
+	count = game->count;
+	tmp = count;
+	size = get_size(count) - 1;
+	while (size >= 0)
+	{
+		mlx_put_image_to_window(game->mlx, game->mlx_win,
+			game->numbers.text_number[(tmp % 10)], size * 32, 0);
+		tmp /= 10;
+		size--;
+	}
 }

@@ -6,17 +6,11 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:56:52 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/10/04 12:41:05 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/04 15:31:02 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes_bonus/so_long.h"
-
-/**
- * Fonction qui va simplement faire un switch
- * afin de determiner dans quel sens va allers
- * le creeper
- **/
 
 void	enemy_moves(t_game *game, int b_move)
 {

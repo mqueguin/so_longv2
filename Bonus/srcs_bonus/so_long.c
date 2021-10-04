@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 15:05:17 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/10/04 12:18:13 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/04 15:29:25 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		printf("Error\nThe arguments are wrong!\n");
+		ft_putendl_fd("Error\nThe arguments are wrong!", 2);
 		return (-1);
 	}
 	if (!check_extension(av[1]) || !check_open_file(av[1]))

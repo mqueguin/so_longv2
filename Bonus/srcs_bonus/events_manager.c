@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 18:54:23 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/16 17:41:32 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/04 12:53:36 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	events_key_manager(int keycode, t_game *game)
 {
-	//printf("Valeur de keycode : %d\n", keycode);
 	if (keycode == 53)
 		echap_game_mouse(game);
 	if (keycode == 13)

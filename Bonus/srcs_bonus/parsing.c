@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 16:34:42 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/16 17:42:05 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/04 15:32:30 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,11 @@ static	int	get_player_pos(t_game *game, int x, int y)
 	return (1);
 }
 
-int	recover_playerpos_and_check_collect_exit(t_game *game)
+static	int	recover_and_check_cpe(t_game *game, int x, int y, int b_player)
 {
-	int	x;
-	int	y;
 	int	b_exit;
-	int	b_player;
 
-	y = -1;
 	b_exit = 0;
-	b_player = 0;
-	game->nb_collectible = 0;
 	while (game->map[++y])
 	{
 		x = -1;
@@ -44,17 +38,12 @@ int	recover_playerpos_and_check_collect_exit(t_game *game)
 			else if (game->map[y][x] != '0' && game->map[y][x] != '1')
 			{
 				free_tab2d(game->map);
-				printf("Error\nLa map contient un %c et ce n'est pas un caractere valide\n", game->map[y][x]);
+				ft_putendl_fd("Error\nThe card contains an invalid character", 2);
 				return (0);
 			}
 		}
 	}
-	if (!b_exit || !game->nb_collectible || !b_player)
-	{
-		free_tab2d(game->map);
-		printf("Error\nLa map n est pas complete il manque un collectible ou une sortie\n");
-		return (0);
-	}
+	check_elements_in_map(game, b_exit, b_player);
 	return (1);
 }
 
@@ -63,8 +52,7 @@ static	int	ft_verif_rectangle(t_game *game)
 	int	x;
 	int	y;
 	int	i;
-	//int	j;
-	
+
 	x = ft_strlen(game->map[0]);
 	y = 0;
 	while (game->map[y])
@@ -74,7 +62,7 @@ static	int	ft_verif_rectangle(t_game *game)
 			i++;
 		if (i != x)
 		{
-			printf("Error\nThe map is not a rectangle\n");
+			ft_putendl_fd("Error\nThe map is not a rectangle", 2);
 			return (0);
 		}
 		y++;
@@ -88,16 +76,9 @@ int	ft_verif_map_is_close(t_game *game)
 	int	y;
 	int	x_max;
 
-	x= -1;
-	while (game->map[0][++x])
-	{
-		if (game->map[0][x] != '1')
-		{
-			printf("Error\nLe mur du haut n'est pas ferme\n");
-			return (0);
-		}
-	}
-	x_max = x;
+	x_max = check_top_wall(game);
+	if (x_max == 0)
+		return (0);
 	game->x = x_max;
 	y = 0;
 	while (game->map[y])
@@ -105,30 +86,13 @@ int	ft_verif_map_is_close(t_game *game)
 	game->y = y;
 	x = -1;
 	while (game->map[y - 1][++x])
-	{
 		if (game->map[y - 1][x] != '1')
-		{
-			printf("Error\nLe mur du bas n'est pas ferme\n");
-			return (0);
-		}
-	}
+			return (ft_putendl_fd("Error\nLe mur du bas n'est pas ferme", 2));
 	y = -1;
-	while (game->map[++y])
-	{
-		x = 0;
-		if (game->map[y][0] != '1')
-		{
-			printf("Error\nLa colonne de gauche n'est pas ferme\n");
-			return (0);
-		}
-		if (game->map[y][x_max - 1] != '1' || game->map[y][x_max])
-		{
-			printf("Error\nLa colonne de droite n'est pas ferme\n");
-			return (0);
-		}
-	}
+	game->res[1] = check_right_left_wall(game, x_max);
+	if (!game->res[1])
+		return (0);
 	game->res[0] = x_max;
-	game->res[1] = y;
 	return (1);
 }
 
@@ -141,11 +105,11 @@ int	ft_parse_map(t_game *game)
 	ret = read(game->fd, buffer, 5000);
 	if (ret < 0)
 	{
-		printf("Error\nError during read of file\n");
+		ft_putendl_fd("Error\nError during read of file", 2);
 		return (0);
 	}
 	game->map = ft_split(buffer, '\n');
-	if (!recover_playerpos_and_check_collect_exit(game))
+	if (!recover_and_check_cpe(game, -1, -1, 0))
 		return (0);
 	if (!ft_verif_rectangle(game) || !ft_verif_map_is_close(game))
 		return (0);

@@ -6,82 +6,64 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 14:17:21 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/10/04 12:36:41 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/04 15:06:18 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes_bonus/so_long.h"
 
-static	int	get_size(int count)
+static	void	draw_map2(t_game *game)
 {
-	int	size;
-	if (count == 0)
-		return (1);
-	size = 0;
-	while (count > 0)
+	draw_count(game);
+	if (game->map[game->player_pos[1]][game->player_pos[0]] == 'C'
+			|| game->map[game->player_pos[1]][game->player_pos[0]] == 'P')
 	{
-		count /= 10;
-		size++;
+		if (game->map[game->player_pos[1]][game->player_pos[0]] == 'C')
+			game->count_collectible++;
+		game->map[game->player_pos[1]][game->player_pos[0]] = '0';
 	}
-	return (size);
+	mlx_put_image_to_window(game->mlx, game->mlx_win, game->texts_img[2],
+		game->player_pos[0] * 32, game->player_pos[1] * 32);
 }
 
-static	void	draw_count(t_game *game)
+static	void	draw_collectible(t_game *game, int i, int j)
 {
-	int	size;
-	int	count;
-	int	tmp;
+	mlx_put_image_to_window(game->mlx, game->mlx_win,
+		game->texts_img[1], j * 32, i * 32);
+	animation_c(game, i, j);
+}
 
-	count = game->count;
-	tmp = count;
-	size = get_size(count) - 1;
-	while (size >= 0)
-	{
-		mlx_put_image_to_window(game->mlx, game->mlx_win, game->numbers.text_number[(tmp % 10)], size * 32, 0);
-		tmp /= 10;
-		size--;
-	}
+static	void	draw_exit(t_game *game, int i, int j)
+{
+	mlx_put_image_to_window(game->mlx, game->mlx_win,
+		game->texts_img[1], j * 32, i * 32);
+	animation_e(game, i, j);
 }
 
 int	draw_map(t_game *game)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
-	i = 0;
-	while (i < game->y)
+	i = -1;
+	while (++i < game->y)
 	{
-		j = 0;
-		while (j < game->x)
+		j = -1;
+		while (++j < game->x)
 		{
 			draw_enemy_with_animation(game);
 			if (game->map[i][j] == '1')
-				mlx_put_image_to_window(game->mlx, game->mlx_win, game->texts_img[0], j * 32, i * 32);
+				mlx_put_image_to_window(game->mlx, game->mlx_win,
+					game->texts_img[0], j * 32, i * 32);
 			else if (game->map[i][j] == 'C')
-			{
-				mlx_put_image_to_window(game->mlx, game->mlx_win, game->texts_img[1], j * 32, i * 32);
-				animation_c(game, i, j);
-			}
+				draw_collectible(game, i, j);
 			else if (game->map[i][j] == 'E')
-			{
-				mlx_put_image_to_window(game->mlx, game->mlx_win, game->texts_img[1], j * 32, i * 32);
-				animation_e(game, i, j);
-			}
+				draw_exit(game, i, j);
 			else if (game->map[i][j] == '0')
-				mlx_put_image_to_window(game->mlx, game->mlx_win, game->texts_img[1], j * 32, i * 32);
-			draw_count(game);
-			if (game->map[game->player_pos[1]][game->player_pos[0]] == 'C'
-					|| game->map[game->player_pos[1]][game->player_pos[0]] == 'P')
-			{
-				if (game->map[game->player_pos[1]][game->player_pos[0]] == 'C')
-					game->count_collectible++;
-				game->map[game->player_pos[1]][game->player_pos[0]] = '0';
-			}
-			mlx_put_image_to_window(game->mlx, game->mlx_win, game->texts_img[2],
-		game->player_pos[0] * 32, game->player_pos[1] * 32);
-			j++;
+				mlx_put_image_to_window(game->mlx, game->mlx_win,
+					game->texts_img[1], j * 32, i * 32);
+			draw_map2(game);
 		}
-		i++;
 	}
 	return (0);
 }

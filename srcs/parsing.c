@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 16:34:42 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/30 19:43:47 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/04 15:36:21 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static	int	recover_and_check_cpe(t_game *game, int x, int y, int b_player)
 			else if (game->map[y][x] != '0' && game->map[y][x] != '1')
 			{
 				free_tab2d(game->map);
-				ft_putstr_fd("Error\nThe card contains an invalid character", 2);
+				ft_putendl_fd("Error\nThe card contains an invalid character", 2);
 				return (0);
 			}
 		}
@@ -62,7 +62,7 @@ static	int	ft_verif_rectangle(t_game *game)
 			i++;
 		if (i != x)
 		{
-			printf("Error\nThe map is not a rectangle\n");
+			ft_putendl_fd("Error\nThe map is not a rectangle", 2);
 			return (0);
 		}
 		y++;
@@ -105,7 +105,7 @@ int	ft_parse_map(t_game *game)
 	ret = read(game->fd, buffer, 5000);
 	if (ret < 0)
 	{
-		printf("Error\nError during read of file\n");
+		ft_putendl_fd("Error\nError during read of file", 2);
 		return (0);
 	}
 	game->map = ft_split(buffer, '\n');

@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 19:12:31 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/10/04 12:43:44 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/04 13:01:00 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_up(t_game *game)
 {
 	if (game->map[game->player_pos[1] - 1][game->player_pos[0]] == '1')
-		return ; //On est sur un mur donc on ne peut pas bouger
+		return ;
 	enemy_moves(game, game->enemy.b_move);
 	if (game->map[game->player_pos[1] - 1][game->player_pos[0]] == 'E')
 	{
@@ -25,7 +25,7 @@ void	ft_up(t_game *game)
 		printf("Nombres de coups : %d\n", game->count);
 	}
 	else if ((game->map[game->player_pos[1] - 1][game->player_pos[0]] == '0')
-			|| (game->map[game->player_pos[1] - 1][game->player_pos[0]] = 'C'))
+			|| (game->map[game->player_pos[1] - 1][game->player_pos[0]] == 'C'))
 	{
 		game->player_pos[1]--;
 		game->count += 1;
@@ -46,7 +46,7 @@ void	ft_down(t_game *game)
 		printf("Nombres de coups : %d\n", game->count);
 	}
 	else if ((game->map[game->player_pos[1] + 1][game->player_pos[0]] == '0')
-			|| (game->map[game->player_pos[1] + 1][game->player_pos[0]] = 'C'))
+			|| (game->map[game->player_pos[1] + 1][game->player_pos[0]] == 'C'))
 	{
 		game->player_pos[1]++;
 		game->count += 1;
@@ -67,7 +67,7 @@ void	ft_left(t_game *game)
 		printf("Nombres de coups : %d\n", game->count);
 	}
 	else if ((game->map[game->player_pos[1]][game->player_pos[0] - 1] == '0')
-			|| (game->map[game->player_pos[1]][game->player_pos[0] - 1] = 'C'))
+			|| (game->map[game->player_pos[1]][game->player_pos[0] - 1] == 'C'))
 	{
 		game->player_pos[0]--;
 		game->count += 1;
@@ -88,7 +88,7 @@ void	ft_right(t_game *game)
 		printf("Nombres de coups : %d\n", game->count);
 	}
 	else if ((game->map[game->player_pos[1]][game->player_pos[0] + 1] == '0')
-			|| (game->map[game->player_pos[1]][game->player_pos[0] + 1] = 'C'))
+			|| (game->map[game->player_pos[1]][game->player_pos[0] + 1] == 'C'))
 	{
 		game->player_pos[0]++;
 		game->count += 1;

@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:38:05 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/30 18:35:53 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/04 15:36:37 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	load_textures(t_game *game)
 		{
 			free_tab2d(path);
 			free_tab2d(game->map);
-			printf("Error\nImpossible de charger les textures\n");
+			ft_putendl_fd("Error\nImpossible de charger les textures", 2);
 			return (0);
 		}
 	}

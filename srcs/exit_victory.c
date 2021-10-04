@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 15:57:01 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/30 18:33:29 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/04 15:36:50 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	exit_victory(t_game *game)
 	if (game->nb_collectible == game->count_collectible)
 	{
 		printf("Nombres de coups : %d\n", game->count + 1);
-		printf("You win !\n");
+		ft_putendl_fd("You win !",1 );
 		mlx_destroy_image(game->mlx, game->img);
 		mlx_destroy_window(game->mlx, game->mlx_win);
 		free_tab2d(game->map);

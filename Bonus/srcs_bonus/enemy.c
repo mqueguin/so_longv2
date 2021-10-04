@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 13:07:21 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/10/04 12:37:06 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/04 12:52:58 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,5 @@ int	place_enemy_on_map(t_game *game)
 			}
 		}
 	}
-	free_tab2d(game->map);
-	ft_putstr_fd("Error\nUnable to place enemy on the map\n", 2);
-	return (0);
+	return (1);
 }

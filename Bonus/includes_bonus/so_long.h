@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 13:13:43 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/10/04 12:41:27 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/04 15:20:01 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,9 @@ int			place_enemy_on_map(t_game *game);
 void		enemy_moves(t_game *game, int b_move);
 void		draw_enemy_with_animation(t_game *game);
 void		exit_lose(t_game *game);
+int			get_size(int count);
+void		draw_count(t_game *game);
+void		check_elements_in_map(t_game *game, int b_exit, int b_player);
+int			check_top_wall(t_game *game);
+int			check_right_left_wall(t_game *game, int x_max);
 #endif

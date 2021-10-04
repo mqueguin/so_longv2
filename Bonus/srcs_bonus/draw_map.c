@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 14:17:21 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/10/01 12:18:07 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/04 12:36:41 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static	void	draw_count(t_game *game)
 	size = get_size(count) - 1;
 	while (size >= 0)
 	{
-		mlx_put_image_to_window(game->mlx, game->mlx_win, game->numbers.text_number[(tmp % 10) + 1], size * 32, 0);
+		mlx_put_image_to_window(game->mlx, game->mlx_win, game->numbers.text_number[(tmp % 10)], size * 32, 0);
 		tmp /= 10;
 		size--;
 	}

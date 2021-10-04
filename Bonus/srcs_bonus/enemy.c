@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 13:07:21 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/30 12:50:21 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/04 12:37:06 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int	place_enemy_on_map(t_game *game)
 		{
 			if (game->map[y][x] == '0' && check_around(game, x, y))
 			{
-				game->enemy.enemy_pos[0] = x;
-				game->enemy.enemy_pos[1] = y;
+				game->enemy.pos[0] = x;
+				game->enemy.pos[1] = y;
 				return (1);
 			}
 		}

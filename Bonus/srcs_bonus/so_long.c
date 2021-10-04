@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 15:05:17 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/10/01 12:14:58 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/04 12:18:13 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int	start_game(t_game *game)
 {
 	initialize_struct(game);
 	initialize_mlx_and_window(game);
-	if (!load_textures(game) || !load_textures_enemy(game) || !load_textures_numbers(game))
+	if (!load_textures(game) || !load_textures_enemy(game)
+		|| !load_textures_numbers(game))
 		return (-1);
 	game->img = mlx_new_image(game->mlx, game->res[0] * 32, game->res[1] * 32);
 	mlx_hook(game->mlx_win, 2, 1L << 0, events_key_manager, game);
@@ -41,7 +42,7 @@ int	main(int ac, char **av)
 	{
 		printf("Error\nThe arguments are wrong!\n");
 		return (-1);
-	} 
+	}
 	if (!check_extension(av[1]) || !check_open_file(av[1]))
 		return (-1);
 	game.fd = open(av[1], O_RDONLY);

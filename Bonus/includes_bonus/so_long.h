@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 13:13:43 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/10/01 12:16:25 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/04 12:41:27 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 
 typedef struct	s_enemy
 {
-	int		enemy_pos[2];
+	int		pos[2];
 	void	*text_img_enemy[2];
 	int		txt_enemy_x[2];
 	int		txt_enemy_y[2];
@@ -88,6 +88,7 @@ void		animation_e(t_game *game, int i, int j);
 int			load_textures_enemy(t_game *game);
 int 		load_textures_numbers(t_game *game);
 int			place_enemy_on_map(t_game *game);
-void		enemy_moves(t_game *game);
+void		enemy_moves(t_game *game, int b_move);
 void		draw_enemy_with_animation(t_game *game);
+void		exit_lose(t_game *game);
 #endif

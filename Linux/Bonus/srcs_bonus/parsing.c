@@ -109,9 +109,14 @@ int	ft_parse_map(t_game *game)
 		return (0);
 	}
 	game->map = ft_split(buffer, '\n');
+	if (game->map == NULL)
+		return (ft_putendl_fd("Error\nFailed to allocate memory for the map", 2));
 	if (!recover_and_check_cpe(game, -1, -1, 0))
 		return (0);
 	if (!ft_verif_rectangle(game) || !ft_verif_map_is_close(game))
+	{
+		free_tab2d(game->map);
 		return (0);
+	}
 	return (1);
 }

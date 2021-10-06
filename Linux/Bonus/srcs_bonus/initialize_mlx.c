@@ -15,6 +15,11 @@
 void	initialize_mlx_and_window(t_game *game)
 {
 	game->mlx = mlx_init();
+	if (game->mlx == NULL)
+	{
+		free_tab2d(game->map);
+		exit(0);
+	}
 	game->mlx_win = mlx_new_window(game->mlx, game->res[0] * 32,
 			game->res[1] * 32, "so_long");
 }

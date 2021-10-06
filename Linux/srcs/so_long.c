@@ -38,7 +38,7 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		ft_putendl_fd("Error\nThe arguments are wrong!", 2);
+		ft_putendl_fd("Error\nYou must enter two arguments in parameter", 2);
 		return (-1);
 	}
 	if (!check_extension(av[1]) || !check_open_file(av[1]))

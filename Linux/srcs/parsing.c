@@ -6,11 +6,11 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 16:34:42 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/10/04 15:32:30 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/04 15:36:21 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes_bonus/so_long.h"
+#include "../includes/so_long.h"
 
 static	int	get_player_pos(t_game *game, int x, int y)
 {

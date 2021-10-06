@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 15:05:17 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/10/04 15:29:25 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/06 19:31:13 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ static	void	initialize_struct(t_game *game)
 	game->count = 0;
 	game->count_collectible = 0;
 	game->enemy.b_move = 1;
-	//game->enemy.pos[0] = 0;
-	//game->enemy.pos[1] = 0;
 }
 
 int	start_game(t_game *game)

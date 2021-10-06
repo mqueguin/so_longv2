@@ -6,13 +6,13 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 16:34:42 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/10/04 15:32:30 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/06 19:17:15 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes_bonus/so_long.h"
 
-static	int	get_player_pos(t_game *game, int x, int y,int b_player)
+static	int	get_player_pos(t_game *game, int x, int y, int b_player)
 {
 	game->player_pos[0] = x;
 	game->player_pos[1] = y;
@@ -109,7 +109,8 @@ int	ft_parse_map(t_game *game)
 		return (ft_putendl_fd("Error\nThe map is too big", 2));
 	game->map = ft_split(buffer, '\n');
 	if (game->map == NULL)
-		return (ft_putendl_fd("Error\nFailed to allocate memory for the map", 2));
+		return (ft_putendl_fd("Error\nFailed to allocate memory for the map",
+				2));
 	if (!recover_and_check_cpe(game, -1, -1, 0))
 		return (0);
 	if (!ft_verif_rectangle(game) || !ft_verif_map_is_close(game))

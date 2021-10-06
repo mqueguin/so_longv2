@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:18:51 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/10/04 15:27:09 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/06 19:16:57 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	check_elements_in_map(t_game *game, int b_exit, int b_player)
 		else if (!game->nb_collectible)
 			ft_putendl_fd("Error\nThere must be at least 1 collectible", 2);
 		else if (b_exit > 1)
-			ft_putendl_fd("Error\nThere must be only one exit",2);
+			ft_putendl_fd("Error\nThere must be only one exit", 2);
 		else if (b_player > 1)
 			ft_putendl_fd("Error\nThere must be only one player", 2);
 		exit(0);

@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 14:17:21 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/10/01 11:24:03 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/06 19:07:37 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ static	void	draw_second_part(t_game *game)
 
 static	void	draw_collectible(t_game *game, int i, int j)
 {
-	//mlx_put_image_to_window(game->mlx, game->mlx_win, game->texts_img[1],
-	//	j * 32, i * 32);
 	mlx_put_image_to_window(game->mlx, game->mlx_win, game->texts_img[3],
 		j * 32, i * 32);
 }

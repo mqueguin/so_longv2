@@ -21,10 +21,11 @@
 # include "../libft/libft.h"
 # include <mlx.h>
 
-# define PATH "txt/w.xpm txt/f.xpm txt/steve.xpm txt/diamond.xpm txt/diamond2.xpm txt/exit.xpm txt/exit2.xpm"
-//Rajouter ici un define pour diamond
-//Et ici rajouter un define pour l exit
-# define PATH_NUMBERS "txt/0.xpm txt/1.xpm txt/2.xpm txt/3.xpm txt/4.xpm txt/5.xpm txt/6.xpm txt/7.xpm txt/8.xpm txt/9.xpm"
+# define PATH "txt/w.xpm txt/f.xpm txt/steve.xpm "
+# define PATH_DIAMOND "txt/diamond.xpm txt/diamond2.xpm "
+# define PATH_EXIT "txt/exit.xpm txt/exit2.xpm"
+# define PATH_NUMBERS "txt/0.xpm txt/1.xpm txt/2.xpm txt/3.xpm txt/4.xpm " 
+# define PATH_NUMBERS2 "txt/5.xpm txt/6.xpm txt/7.xpm txt/8.xpm txt/9.xpm"
 # define PATH_ENEMY "txt/creeper.xpm txt/creeper2.xpm"
 
 typedef struct s_enemy

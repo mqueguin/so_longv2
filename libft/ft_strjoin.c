@@ -39,7 +39,7 @@ static char	*ft_strcat(char *dst, char const *src)
 	return (dst);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2, int b_free)
 {
 	size_t	len;
 	char	*str;
@@ -52,5 +52,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	ft_strcpy(str, s1);
 	ft_strcat(str, s2);
+	if (b_free == 1)
+		free(s1);
 	return (str);
 }

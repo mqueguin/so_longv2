@@ -15,9 +15,12 @@
 int	load_textures_numbers(t_game *game)
 {
 	char	**path;
+	char	*str;
 	int		i;
 
-	path = ft_split(PATH_NUMBERS, ' ');
+	str = ft_strjoin(PATH_NUMBERS, PATH_NUMBERS2, 0);
+	path = ft_split(str, ' ');
+
 	i = -1;
 	while (++i < 10)
 	{
@@ -28,11 +31,13 @@ int	load_textures_numbers(t_game *game)
 		{
 			free_tab2d(game->map);
 			free_tab2d(path);
+			free(str);
 			ft_putendl_fd("Error\nUnable to load numbers textures", 2);
 			return (0);
 		}
 	}
 	free_tab2d(path);
+	free(str);
 	return (1);
 }
 
@@ -61,9 +66,12 @@ int	load_textures(t_game *game)
 {
 	int		i;
 	char	**path;
+	char	*str;
 
 	i = -1;
-	path = ft_split(PATH, ' ');
+	str = ft_strjoin(PATH, PATH_DIAMOND, 0);
+	str = ft_strjoin(str, PATH_EXIT, 1);
+	path = ft_split(str, ' ');
 	while (++i < 7)
 	{
 		game->texts_img[i] = mlx_xpm_file_to_image(game->mlx, path[i],
@@ -72,10 +80,12 @@ int	load_textures(t_game *game)
 		{
 			free_tab2d(path);
 			free_tab2d(game->map);
+			free(str);
 			ft_putendl_fd("Error\nUnable to load textures", 2);
 			return (0);
 		}
 	}
+	free(str);
 	free_tab2d(path);
 	return (1);
 }

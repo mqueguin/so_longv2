@@ -10,16 +10,16 @@
 #                                                                              #
 # **************************************************************************** #
 
-END		=	\x1b[0m
-BOLD	=	\x1b[1m
-UNDER	=	\x1b[4m
-RED		=	\x1b[31m
-GREEN	=	\x1b[32m
-YELLOW	=	\x1b[33m
-BLUE	=	\x1b[34m
-PURPLE	=	\x1b[35m
-CYAN	=	\x1b[36m
-WHITE	=	\x1b[37m
+END		=	\033[0m
+BOLD	=	\033[1m
+UNDER	=	\033[4m
+RED		=	\033[31m
+GREEN	=	\033[32m
+YELLOW	=	\033[33m
+BLUE	=	\033[34m
+PURPLE	=	\033[35m
+CYAN	=	\033[36m
+WHITE	=	\033[37m
 
 SRCS		= 		ft_isalnum.c\
 					ft_isalpha.c\

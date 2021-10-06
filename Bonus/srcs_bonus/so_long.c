@@ -17,6 +17,8 @@ static	void	initialize_struct(t_game *game)
 	game->count = 0;
 	game->count_collectible = 0;
 	game->enemy.b_move = 1;
+	//game->enemy.pos[0] = 0;
+	//game->enemy.pos[1] = 0;
 }
 
 int	start_game(t_game *game)
@@ -38,6 +40,7 @@ int	main(int ac, char **av)
 {
 	t_game	game;
 
+	ft_bzero(&game, sizeof(t_game));
 	if (ac != 2)
 	{
 		ft_putendl_fd("Error\nThe arguments are wrong!", 2);

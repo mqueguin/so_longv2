@@ -36,6 +36,7 @@ int	main(int ac, char **av)
 {
 	t_game	game;
 
+	ft_bzero(&game, sizeof(game));
 	if (ac != 2)
 	{
 		ft_putendl_fd("Error\nYou must enter two arguments in parameter", 2);

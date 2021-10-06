@@ -56,7 +56,7 @@ typedef struct s_game
 	int		fd;
 	int		res[2];
 	char	**map;
-	int		player_pos[2]; //x: 0, y: 1
+	int		player_pos[2];
 	void	*texts_img[7];
 	int		text_x[7];
 	int		text_y[7];

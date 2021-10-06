@@ -47,20 +47,22 @@ int	check_top_wall(t_game *game)
 
 void	check_elements_in_map(t_game *game, int b_exit, int b_player)
 {
-	if (!b_exit || !game->nb_collectible || !b_player)
+	if (!b_exit || !game->nb_collectible || !b_player || b_exit > 1
+		|| b_player > 1)
 	{
 		free_tab2d(game->map);
 		if (!b_exit && !b_player && !game->nb_collectible)
-		{
-			printf("Error\nA collectible, a player and");
-			ft_putendl_fd(" an exit in the map are missing", 2);
-		}
+			ft_putendl_fd("Error\nOne p, one c and one e are missing", 2);
 		else if (!b_exit)
 			ft_putendl_fd("Error\nThere must be at least one exit", 2);
 		else if (!b_player)
 			ft_putendl_fd("Error\nThe player is missing", 2);
 		else if (!game->nb_collectible)
 			ft_putendl_fd("Error\nThere must be at least 1 collectible", 2);
+		else if (b_exit > 1)
+			ft_putendl_fd("Error\nThere must be only one exit",2);
+		else if (b_player > 1)
+			ft_putendl_fd("Error\nThere must be only one player", 2);
 		exit(0);
 	}
 }

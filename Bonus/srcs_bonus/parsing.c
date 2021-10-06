@@ -12,11 +12,11 @@
 
 #include "../includes_bonus/so_long.h"
 
-static	int	get_player_pos(t_game *game, int x, int y)
+static	int	get_player_pos(t_game *game, int x, int y,int b_player)
 {
 	game->player_pos[0] = x;
 	game->player_pos[1] = y;
-	return (1);
+	return (b_player + 1);
 }
 
 static	int	recover_and_check_cpe(t_game *game, int x, int y, int b_player)
@@ -30,15 +30,15 @@ static	int	recover_and_check_cpe(t_game *game, int x, int y, int b_player)
 		while (game->map[y][++x])
 		{
 			if (game->map[y][x] == 'P')
-				b_player = get_player_pos(game, x, y);
+				b_player = get_player_pos(game, x, y, b_player);
 			else if (game->map[y][x] == 'C')
 				game->nb_collectible++;
 			else if (game->map[y][x] == 'E')
-				b_exit = 1;
+				b_exit += 1;
 			else if (game->map[y][x] != '0' && game->map[y][x] != '1')
 			{
 				free_tab2d(game->map);
-				ft_putendl_fd("Error\nThe card contains an invalid character", 2);
+				ft_putendl_fd("Error\nThe map contains an invalid character", 2);
 				return (0);
 			}
 		}

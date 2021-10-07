@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 16:34:42 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/10/06 19:08:54 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/07 12:31:09 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	ft_verif_map_is_close(t_game *game)
 	x = -1;
 	while (game->map[y - 1][++x])
 		if (game->map[y - 1][x] != '1')
-			return (ft_putendl_fd("Error\nLe mur du bas n'est pas ferme", 2));
+			return (ft_putendl_fd("Error\nThe bottom wall is not closed", 2));
 	y = -1;
 	game->res[1] = check_right_left_wall(game, x_max);
 	if (!game->res[1])
@@ -104,10 +104,9 @@ int	ft_parse_map(t_game *game)
 	ft_memset(buffer, 0, 5000);
 	ret = read(game->fd, buffer, 5000);
 	if (ret < 0)
-	{
-		ft_putendl_fd("Error\nError during read of file", 2);
-		return (0);
-	}
+		return (ft_putendl_fd("Error\nError during read of file", 2));
+	if (ret == 4999)
+		return (ft_putendl_fd("Error\nThe map is too big", 2));
 	game->map = ft_split(buffer, '\n');
 	if (game->map == NULL)
 		return (ft_putendl_fd("Error\nFailed to allocate memory for the map",

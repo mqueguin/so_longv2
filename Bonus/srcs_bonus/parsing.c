@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 16:34:42 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/10/06 19:17:15 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/07 12:27:26 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	ft_verif_map_is_close(t_game *game)
 	x = -1;
 	while (game->map[y - 1][++x])
 		if (game->map[y - 1][x] != '1')
-			return (ft_putendl_fd("Error\nLe mur du bas n'est pas ferme", 2));
+			return (ft_putendl_fd("Error\nThe bottom wall is not closed", 2));
 	y = -1;
 	game->res[1] = check_right_left_wall(game, x_max);
 	if (!game->res[1])

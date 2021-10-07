@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:38:05 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/10/04 15:30:18 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/10/07 12:19:45 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	load_textures_numbers(t_game *game)
 
 	str = ft_strjoin(PATH_NUMBERS, PATH_NUMBERS2, 0);
 	path = ft_split(str, ' ');
-
 	i = -1;
 	while (++i < 10)
 	{

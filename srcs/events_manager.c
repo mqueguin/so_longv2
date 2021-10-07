@@ -29,6 +29,7 @@ int	events_key_manager(int keycode, t_game *game)
 
 int	echap_game_mouse(t_game *game)
 {
+	ft_putendl_fd("You quit the game !", 1);
 	mlx_destroy_image(game->mlx, game->img);
 	mlx_destroy_window(game->mlx, game->mlx_win);
 	free_tab2d(game->map);

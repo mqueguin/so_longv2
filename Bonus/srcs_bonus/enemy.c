@@ -12,14 +12,6 @@
 
 #include "../includes_bonus/so_long.h"
 
-static	int	check_around(t_game *game, int x, int y)
-{
-	if ((game->map[y][x + 1] == '0' && game->map[y][x + 2] == '0')
-			|| (game->map[y][x - 1] == '0' && game->map[y][x - 2] == '0'))
-		return (1);
-	return (0);
-}
-
 int	place_enemy_on_map(t_game *game)
 {
 	int	x;
@@ -31,7 +23,7 @@ int	place_enemy_on_map(t_game *game)
 		x = 0;
 		while (game->map[y][++x])
 		{
-			if (game->map[y][x] == '0' && check_around(game, x, y))
+			if (game->map[y][x] == '0')
 			{
 				game->enemy.pos[0] = x;
 				game->enemy.pos[1] = y;

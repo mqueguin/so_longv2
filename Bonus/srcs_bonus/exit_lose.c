@@ -14,7 +14,6 @@
 
 void	exit_lose(t_game *game)
 {
-	printf("Nombres de coups : %d\n", game->count + 1);
 	ft_putendl_fd("You lost !", 1);
 	mlx_destroy_image(game->mlx, game->img);
 	mlx_destroy_window(game->mlx, game->mlx_win);

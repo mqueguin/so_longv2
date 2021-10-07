@@ -33,6 +33,8 @@ void	draw_count(t_game *game)
 	int	count;
 	int	tmp;
 
+	if (game->count > 999)
+		exit_lose(game);
 	count = game->count;
 	tmp = count;
 	size = get_size(count) - 1;

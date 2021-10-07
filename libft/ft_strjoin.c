@@ -53,6 +53,6 @@ char	*ft_strjoin(char const *s1, char const *s2, int b_free)
 	ft_strcpy(str, s1);
 	ft_strcat(str, s2);
 	if (b_free == 1)
-		free(s1);
+		free((void*)s1);
 	return (str);
 }
